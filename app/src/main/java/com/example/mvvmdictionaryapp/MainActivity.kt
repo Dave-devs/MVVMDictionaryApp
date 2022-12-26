@@ -18,9 +18,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.mvvmdictionaryapp.feature_dictionary.presentation.UiEvent
-import com.example.mvvmdictionaryapp.feature_dictionary.presentation.WordInfoItem
-import com.example.mvvmdictionaryapp.feature_dictionary.presentation.WordInfoViewModel
+import com.example.mvvmdictionaryapp.dictionary.presentation.UiEvent
+import com.example.mvvmdictionaryapp.dictionary.presentation.WordInfoItem
+import com.example.mvvmdictionaryapp.dictionary.presentation.WordInfoViewModel
 import com.example.mvvmdictionaryapp.ui.theme.MVVMDictionaryAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
