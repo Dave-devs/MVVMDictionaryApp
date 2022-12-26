@@ -20,7 +20,6 @@ data class WordInfoEntity(
             phonetic = phonetic,
             sourceUrls = sourceUrls,
             word = word
-
         )
     }
 }

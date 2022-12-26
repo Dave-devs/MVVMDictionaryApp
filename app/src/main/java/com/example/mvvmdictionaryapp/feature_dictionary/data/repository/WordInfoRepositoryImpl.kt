@@ -45,7 +45,7 @@ class WordInfoRepositoryImpl(
                 data = wordInfos
             ))
         }
-        //If there is no error do this;
+        //If there is no error do this emit to UI
         val newWordInfos = dao.getWordInfos(word).map { it.toWordInfo() }
         emit(Resource.Success(newWordInfos))
     }

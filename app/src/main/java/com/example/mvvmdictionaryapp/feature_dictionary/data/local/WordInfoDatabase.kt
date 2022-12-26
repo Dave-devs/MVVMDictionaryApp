@@ -7,10 +7,10 @@ import com.example.mvvmdictionaryapp.feature_dictionary.data.local.entity.WordIn
 
 @Database(
     entities = [WordInfoEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = true
 )
 @TypeConverters(Converters::class)
 abstract class WordInfoDatabase: RoomDatabase() {
-
     abstract val dao: WordInfoDao
 }

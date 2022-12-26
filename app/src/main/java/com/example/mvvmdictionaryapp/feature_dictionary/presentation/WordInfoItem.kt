@@ -30,7 +30,12 @@ fun WordInfoItem(
             color = Color.Black
         )
         Spacer(modifier = Modifier.height(8.dp))
-        Text(text = wordInfo.sourceUrls.length.toString())
+        Text(
+            text = wordInfo.sourceUrls,
+            fontWeight = FontWeight.Light,
+            fontSize = 24.sp,
+            color = Color.Black
+        )
         /*wordInfo.sourceUrls.forEach{ sourceUrl->
             Text(text = sourceUrl.length.toString())
         }*/

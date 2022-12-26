@@ -7,9 +7,8 @@ import com.example.mvvmdictionaryapp.feature_dictionary.domain.model.Meaning
 import com.google.gson.reflect.TypeToken
 
 @ProvidedTypeConverter
-class Converters(
-    private val jsonParser: JsonParser
-) {
+class Converters( private val jsonParser: JsonParser ) {
+
     @TypeConverter
     fun fromMeaningsJson(json: String): List<Meaning> {
         return jsonParser.fromJson<ArrayList<Meaning>>(
@@ -25,5 +24,5 @@ class Converters(
             object : TypeToken<ArrayList<Meaning>>(){}.type
         ) ?: "[]"
     }
-
 }
+

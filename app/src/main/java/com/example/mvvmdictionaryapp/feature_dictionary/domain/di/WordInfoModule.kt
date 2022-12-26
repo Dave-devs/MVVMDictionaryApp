@@ -23,11 +23,15 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object WordInfoModule {
 
-    //We need to provide use_case where it return a repository
+    //We need to provide DictionaryApi that return baseUrl()
     @Provides
     @Singleton
-    fun provideGetWordUseCase(repository: WordInfoRepository): GetWordInfo {
-        return GetWordInfo(repository)
+    fun provideDictionaryApi(): DictionaryApi {
+        return Retrofit.Builder()
+            .baseUrl(Constant.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(DictionaryApi::class.java)
     }
 
     //We need to provide repository(dao, api) that return repositoryImpl
@@ -47,20 +51,15 @@ object WordInfoModule {
         return Room.databaseBuilder(
             app,
             WordInfoDatabase::class.java,
-            "word_db"
+            "word_database"
         ).addTypeConverter(Converters(GsonParser(Gson())))
             .build()
     }
 
-    //We need to provide DictionaryApi that return baseUrl()
+    //We need to provide use_case where it return a repository
     @Provides
     @Singleton
-    fun provideDictionaryApi(): DictionaryApi {
-        return Retrofit.Builder()
-            .baseUrl(Constant.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(DictionaryApi::class.java)
+    fun provideGetWordUseCase(repository: WordInfoRepository): GetWordInfo {
+        return GetWordInfo(repository)
     }
-
 }

@@ -4,7 +4,7 @@ import java.lang.reflect.Type
 
 interface JsonParser {
 
-    //Json Parser for type converter for unrecognized value passed by our table.
+    //Json Parser for type converter for unrecognized value passed by entity table.
     fun <T> fromJson(json: String, type: Type): T?
 
     fun <T> toJson(obj: T, type: Type): String?

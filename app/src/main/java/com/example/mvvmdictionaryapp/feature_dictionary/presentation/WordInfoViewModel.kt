@@ -16,16 +16,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WordInfoViewModel @Inject constructor(
-    private val getWordInfo: GetWordInfo
+    private val getWordInfo: GetWordInfo //ViewModel call the use-cases directly.
     //from use_cases getWordInfo
 ): ViewModel() {
 
-    /*  Get our WordInfoStates, they are;
-        meanings: List<Meaning>,
-        phonetic: String,
-        sourceUrls: List<String>,
-        word: String
-    */
     private val _state = mutableStateOf(WordInfoState())
     val state: State<WordInfoState> = _state
 
