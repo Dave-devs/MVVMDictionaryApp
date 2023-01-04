@@ -7,15 +7,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.mvvmdictionaryapp.dictionary.presentation.UiEvent
@@ -47,63 +42,47 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 }
-                Scaffold(
-                    scaffoldState = scaffoldState
-                ) {
-                    Box(modifier = Modifier
-                        .background(brush = Brush.linearGradient(
-                            colors = listOf(
-                                MaterialTheme.colors.primary,
-                                MaterialTheme.colors.primaryVariant
-                            )
-                        ))
-                    ) {
-                        Column(modifier = Modifier
-                            .fillMaxSize()
-                        ) {
-                            TextField(
-                                value = viewModel.searchQuery.value,
-                                onValueChange = viewModel::onSearch,
-                                modifier = Modifier.fillMaxSize(),
-                                placeholder = {
-                                    Text(
-                                        text = "Search...",
-                                        color = Color.White
-                                    )
-                                },
-                                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                                keyboardActions = KeyboardActions(onSearch = {
-                                    viewModel.onSearch(query = viewModel.searchQuery.value)
-                                })
-                            )
-                            Spacer(modifier = Modifier.height(16.dp))
-                            LazyColumn(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                            ) {
-                                items(state.wordInfoItems.size) { i ->
-                                    val wordInfo = state.wordInfoItems[i]
-                                    if(i > 0) {
-                                        Spacer(modifier = Modifier.height(8.dp))
-                                    }
-                                    WordInfoItem(wordInfo = wordInfo)
-                                    if (i < state.wordInfoItems.size - 1) {
-                                        Divider(
-                                            modifier = Modifier
-                                            .fillMaxWidth(),
-                                            thickness = 2.dp
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                        if(state.isLoading) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-                    }
-                }
+               Scaffold(
+                   scaffoldState = scaffoldState
+               ) {
+                   Box(
+                       modifier = Modifier
+                           .background(MaterialTheme.colors.background)
+                   ) {
+                       Column(
+                           modifier = Modifier
+                               .fillMaxSize()
+                               //.padding(16.dp)
+                       ) {
+                           TextField(
+                               value = viewModel.searchQuery.value,
+                               onValueChange = viewModel::onSearch,
+                               modifier = Modifier.fillMaxWidth(),
+                               placeholder = {
+                                   Text(text = "Search...")
+                               }
+                           )
+                           Spacer(modifier = Modifier.height(16.dp))
+                           LazyColumn(
+                               modifier = Modifier.fillMaxSize()
+                           ) {
+                               items(state.wordInfoItems.size) { i ->
+                                   val wordInfo = state.wordInfoItems[i]
+                                   if(i > 0) {
+                                       Spacer(modifier = Modifier.height(8.dp))
+                                   }
+                                   WordInfoItem(wordInfo = wordInfo)
+                                   if(i < state.wordInfoItems.size - 1) {
+                                       Divider()
+                                   }
+                               }
+                           }
+                       }
+                       if(state.isLoading) {
+                           CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                       }
+                   }
+               }
             }
         }
     }
