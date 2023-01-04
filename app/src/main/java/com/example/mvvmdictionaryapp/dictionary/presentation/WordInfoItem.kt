@@ -21,20 +21,20 @@ fun WordInfoItem(
             text = wordInfo.word,
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
-            color = Color.Black
+            color = Color.White
         )
         Text(
             text = wordInfo.phonetic,
             fontWeight = FontWeight.Light,
             fontSize = 24.sp,
-            color = Color.Black
+            color = Color.White
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = wordInfo.sourceUrls,
             fontWeight = FontWeight.Light,
             fontSize = 24.sp,
-            color = Color.Black
+            color = Color.White
         )
         /*wordInfo.sourceUrls.forEach{ sourceUrl->
             Text(text = sourceUrl.length.toString())
