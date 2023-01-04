@@ -29,7 +29,7 @@ fun WordInfoItem(
             fontSize = 24.sp,
             color = Color.Black
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = wordInfo.sourceUrls,
             fontWeight = FontWeight.Light,

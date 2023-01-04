@@ -1,4 +1,4 @@
-package com.example.mvvmdictionaryapp.dictionary.domain.di
+package com.example.mvvmdictionaryapp.dictionary.di
 
 import android.app.Application
 import androidx.room.Room
