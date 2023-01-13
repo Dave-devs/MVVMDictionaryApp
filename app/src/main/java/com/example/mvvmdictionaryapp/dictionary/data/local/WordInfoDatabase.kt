@@ -8,7 +8,7 @@ import com.example.mvvmdictionaryapp.dictionary.data.local.entity.WordInfoEntity
 @Database(
     entities = [WordInfoEntity::class],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class WordInfoDatabase: RoomDatabase() {
