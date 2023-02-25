@@ -1,6 +1,6 @@
 package com.example.mvvmdictionaryapp.dictionary.presentation
 
-//UiEvent class to ShowSnackbar pop up.
+//UiEvent class to ShowSnackBar pop up.
 sealed class UiEvent {
-    data class ShowSnackbar(val message: String): UiEvent()
+    data class ShowSnackBar(val message: String): UiEvent()
 }

@@ -56,7 +56,7 @@ class WordInfoViewModel @Inject constructor(
                                wordInfoItems = result.data ?: emptyList(),
                                isLoading = true
                            )
-                           _eventFlow.emit(UiEvent.ShowSnackbar(
+                           _eventFlow.emit(UiEvent.ShowSnackBar(
                                result.message ?: "Unknown error"
                            ))
                        }
