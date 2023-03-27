@@ -16,8 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WordInfoViewModel @Inject constructor(
-    private val getWordInfo: GetWordInfo //ViewModel call the use-cases directly.
-    //from use_cases getWordInfo
+    private val getWordInfo: GetWordInfo //ViewModel call the use-cases directly as a function.
 ): ViewModel() {
 
     private val _state = mutableStateOf(WordInfoState())

@@ -9,9 +9,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
 //Where caching logic belong(Single source of truth)
-class WordInfoRepositoryImpl(
+class WordInfoRepositoryImpl @Inject constructor(
     private val dao: WordInfoDao,
     private val api: DictionaryApi
 ): WordInfoRepository {
@@ -20,7 +21,7 @@ class WordInfoRepositoryImpl(
         //When we first request word it will emit Loading(See a ProgressBar).
         emit(Resource.Loading())
 
-        //WE get Data from our Database so we can then show Word information if we have it in our cache.
+        //We get Data from our Database so we can then show Word information if we have it in our cache.
         val wordInfos = dao.getWordInfos(word).map { it.toWordInfo() }
         //We now emit our cache word to the Loading state of our UI.
         emit(Resource.Loading(data = wordInfos))
